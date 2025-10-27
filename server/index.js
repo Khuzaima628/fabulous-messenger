@@ -3,7 +3,7 @@ const express = require("express")
 const cors = require("cors")
 const socketIO = require("socket.io")
 const app = express()
-const port = 4500
+const port = process.env.PORT || 4500;
 const server = http.createServer(app)
 
 app.use(cors())
@@ -45,7 +45,7 @@ io.on("connection", (socket) => {
   // When message is sent
   socket.on("message", (messageData) => {
     io.emit("message", messageData);
-    
+
   });
 
   // When typing
